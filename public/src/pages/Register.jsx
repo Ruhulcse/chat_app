@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import styled from "styled-components";
 import { useNavigate, Link } from "react-router-dom";
@@ -16,6 +16,11 @@ function Register() {
     pauseOnHover: true,
     theme: "dark",
   };
+  useEffect(() => {
+    if (localStorage.getItem("chat-app-user")) {
+      navigate("/");
+    }
+  });
   const [values, setValues] = useState({
     username: "",
     email: "",
